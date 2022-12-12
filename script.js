@@ -1,27 +1,45 @@
-const menu = document.querySelector('.menu')
+// Verifique a distância da primeira imagem
+// em relação ao topo da página
+const img = document.querySelector('img')
+const imgTop = img.offsetTop;
 
-menu.classList.add('ativo', 'teste');
-menu.classList.remove('azul')
+console.log(imgTop);
 
-if (menu.classList.contains('azul')) {
-    menu.classList.add('possui-azul')
-}else{
-    menu.classList.add('possui-azul')
+// Retorne a soma da largura de todas as imagens
+function somaImagens() {
+    const imagens = document.querySelectorAll('img');
+    let soma = 0;
+imagens.forEach((imagem)=>{
+    soma += soma +imagem.offsetWidth;
+});
+console.log(soma);
 }
 
-menu.className = menu.className + 'vermelho'
 
-console.log(menu.className);
+window.onload = function () {
+    somaImagens();
+}
+// Verifique se os links da página possuem
+// o mínimo recomendado para telas utilizadas
+// com o dedo. (48px/48px de acordo com o google)
 
-//console.log(menu.classList.)
+const links = document.querySelectorAll('a');
 
-const animais = document.querySelector('.animais');
-console.log(animais.attributes['data-texto']);
+links.forEach((link)=>{
+    const linkWidth = link.offsetWidth;
+    const linkHeight = link.offsetHeight;
+    if (linkWidth > 48 && linkHeight >= 48) {
+        console.log(link,'Possui boa acessibilidade');
+    }else{
+        console.log(link,'Não possui boa acessibilidade');
+    }
+})
+// Se o browser for menor que 720px,
+// adicione a classe menu-mobile ao menu
 
-const img = document.querySelector('img')
+const browserSmall = window.matchMedia('(max width: 720px)').matches;
 
-const srcImg = img.getAttribute('alt');
-
-img.setAttribute('alt', 'É uma raposa')
-
-console.log(srcImg);
+if (browserSmall) {
+    const menu = document.querySelector('.menu');
+    menu.classList.add('menu-mobile')
+}

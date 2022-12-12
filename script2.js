@@ -1,24 +1,28 @@
+const listaAnimais = document.querySelector('.animais-lista');
 
-// Adicione a classe ativo a todos os itens do menu
-const itensMenu = document.querySelector('.menu a')
+const height = listaAnimais.scrollHeight;
+const animaisTop = listaAnimais.offsetTop;
+console.log(animaisTop);
 
-itensMenu.forEach((item) =>{
-    item.classList.add('ativo')
-})
+const primeiroh2 = document.querySelector('h2')
+const h2left = primeiroh2.offsetLeft;
 
-// Remove a classe ativo de todos os itens do menu e mantenha apenas no primeiro
-itensMenu.forEach((item)=>{
-    item.classList.remove('ativo')
-})
+const rect = primeiroh2.getBoundingClientRect();
 
-itensMenu[0].classList.add('ativo')
+console.log(rect.top);
 
-// Verifique se as imagens possuem o atributo alt
-const imgs = document.querySelectorAll('img');
+console.log(
+    window.innerWidth,
+    window.innerHeight,
+    window.outerWidth,
+    window.outerHeight,
+    window.pageYOffset
+);
 
-imgs.forEach((img)=>{
-    const possuiAtributo = img.hasAttribute('alt');
-    console.log(img,possuiAtributo);
-})
-// Modifique o href do link externo no menu
-const link = document.querySelector('')
+const small = window.matchMedia('(max-width: 600px)').matches;
+
+if (small){
+    console.log('Usuario mobile');
+}else{
+    console.log('Usuario Desktop');
+}
