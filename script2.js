@@ -1,28 +1,45 @@
-const listaAnimais = document.querySelector('.animais-lista');
+const img = document.querySelector('img');
 
-const height = listaAnimais.scrollHeight;
-const animaisTop = listaAnimais.offsetTop;
-console.log(animaisTop);
+function callback(e) {
+    console.log(e);
+}
 
-const primeiroh2 = document.querySelector('h2')
-const h2left = primeiroh2.offsetLeft;
+img.addEventListener('click',callback)
 
-const rect = primeiroh2.getBoundingClientRect();
+const animaisLista = document.querySelector('.animais-lista');
 
-console.log(rect.top);
+function callbackLista(event) {
+    console.log(event.currentTarget);
+    console.log(event.target);
+    console.log(event.type);
+}
 
-console.log(
-    window.innerWidth,
-    window.innerHeight,
-    window.outerWidth,
-    window.outerHeight,
-    window.pageYOffset
-);
+animaisLista.addEventListener('click', callbackLista)
 
-const small = window.matchMedia('(max-width: 600px)').matches;
+const linkExterno = document.querySelector('a^[href^="http"]');
 
-if (small){
-    console.log('Usuario mobile');
-}else{
-    console.log('Usuario Desktop');
+function handleLinkExterno(event) {
+    event.preventDefault();
+    console.log(this.getAttribute('href'));
+    console.log(event.currentTarget);
+}
+
+linkExterno.addEventListener('click',handleLinkExterno)
+
+const h1 = document.querySelector('h1')
+function handleEvent(event) {
+    console.log(event.type,event);
+}
+
+h1.addEventListener('click',handleEvent);
+h1.addEventListener('mouseenter',handleEvent);
+h1.addEventListener('mousemove',handleEvent);
+
+window.addEventListener('scroll',handleEvent)
+
+function handleKeyboard(event) {
+    if (event.key === 'f') {
+        document.body.classList.toggle('fullscreen')
+    }
+    
 }
