@@ -1,42 +1,24 @@
-/* const animais = document.getElementById('animais')
-console.log(animais);
 
-const gridSection = document.getElementsByTagName('grid-section')
-console.log(gridSection[1]);
+// Adicione a classe ativo a todos os itens do menu
+const itensMenu = document.querySelector('.menu a')
 
-const primeiraLi = document.querySelector('li')
-console.log(primeiraLi);
+itensMenu.forEach((item) =>{
+    item.classList.add('ativo')
+})
 
-const primeiraUl = document.querySelector('ul')
-console.log(primeiraUl);
+// Remove a classe ativo de todos os itens do menu e mantenha apenas no primeiro
+itensMenu.forEach((item)=>{
+    item.classList.remove('ativo')
+})
 
-const linkInterno = document.querySelector('[href^=]"#"]');
-console.log(linkInterno.href);
+itensMenu[0].classList.add('ativo')
 
-const animaisImg = document.querySelectorAll('.animais img');
-console.log(animaisImg[0]);
+// Verifique se as imagens possuem o atributo alt
+const imgs = document.querySelectorAll('img');
 
-const gridSectionHTML = document.getElementsByClassName('grid-section');
-const gridSectionNode = document.querySelectorAll('.grid-section');
-
-primeiraUl.classList.add('grid-section');
-
-console.log(gridSectionHTML[0]);
-console.log(gridSectionNode[0]);
-
-gridSectionNode.forEach()
- */
-
-// Retorne no console todas as imagens do site
-const img = document.querySelectorAll('img');
-console.log(img);
-
-// Retorne no console apenas as imagens que começaram com a palavra imagem
-const imagensAnimais = document.querySelectorAll('img[src^="img/imagem"]');
-console.log(imagensAnimais);
-// Selecione todos os links internos (onde o href começa com #)
-
-// Selecione o primeiro h2 dentro de .animais-descricao
-
-// Selecione o último p do site
-
+imgs.forEach((img)=>{
+    const possuiAtributo = img.hasAttribute('alt');
+    console.log(img,possuiAtributo);
+})
+// Modifique o href do link externo no menu
+const link = document.querySelector('')
